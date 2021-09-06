@@ -48,6 +48,14 @@ public class CacheConfiguration {
             createCache(cm, com.ava.foodlogger.domain.User.class.getName());
             createCache(cm, com.ava.foodlogger.domain.Authority.class.getName());
             createCache(cm, com.ava.foodlogger.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.ava.foodlogger.domain.CurrentWeight.class.getName());
+            createCache(cm, com.ava.foodlogger.domain.GoalWeight.class.getName());
+            createCache(cm, com.ava.foodlogger.domain.Food.class.getName());
+            createCache(cm, com.ava.foodlogger.domain.Food.class.getName() + ".foodEntries");
+            createCache(cm, com.ava.foodlogger.domain.FoodEntry.class.getName());
+            createCache(cm, com.ava.foodlogger.domain.FoodDay.class.getName());
+            createCache(cm, com.ava.foodlogger.domain.FoodDay.class.getName() + ".foodEntries");
+            createCache(cm, com.ava.foodlogger.domain.AppUser.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

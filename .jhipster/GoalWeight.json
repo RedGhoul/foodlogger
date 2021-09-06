@@ -1,0 +1,33 @@
+{
+  "name": "GoalWeight",
+  "fields": [
+    {
+      "fieldName": "weight",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "goalWeight",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    }
+  ],
+  "entityTableName": "goal_weight",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210906142733"
+}

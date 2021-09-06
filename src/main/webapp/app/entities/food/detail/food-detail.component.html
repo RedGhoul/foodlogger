@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="food">
+      <h2 data-cy="foodDetailsHeading"><span>Food</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ food.id }}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+          <span>{{ food.name }}</span>
+        </dd>
+        <dt><span>Calories</span></dt>
+        <dd>
+          <span>{{ food.calories }}</span>
+        </dd>
+        <dt><span>Carbohydrates</span></dt>
+        <dd>
+          <span>{{ food.carbohydrates }}</span>
+        </dd>
+        <dt><span>Proteins</span></dt>
+        <dd>
+          <span>{{ food.proteins }}</span>
+        </dd>
+        <dt><span>Fat</span></dt>
+        <dd>
+          <span>{{ food.fat }}</span>
+        </dd>
+        <dt><span>Sodium</span></dt>
+        <dd>
+          <span>{{ food.sodium }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/food', food.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

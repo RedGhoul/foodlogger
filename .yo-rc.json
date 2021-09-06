@@ -42,6 +42,8 @@
     "devServerPort": 4200,
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["CurrentWeight", "GoalWeight", "Food", "FoodEntry", "FoodDay", "AppUser"],
+    "lastLiquibaseTimestamp": 1630938457000
   }
 }

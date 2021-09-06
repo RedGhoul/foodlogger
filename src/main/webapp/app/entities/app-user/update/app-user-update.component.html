@@ -1,0 +1,142 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-app-user-heading" data-cy="AppUserCreateUpdateHeading">Create or edit a App User</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_bio">Bio</label>
+          <textarea class="form-control" name="bio" id="field_bio" data-cy="bio" formControlName="bio"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_createdDate">Created Date</label>
+          <div class="input-group">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="text"
+              class="form-control"
+              name="createdDate"
+              ngbDatepicker
+              #createdDateDp="ngbDatepicker"
+              formControlName="createdDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="createdDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_height">Height</label>
+          <input type="number" class="form-control" name="height" id="field_height" data-cy="height" formControlName="height" />
+          <div *ngIf="editForm.get('height')!.invalid && (editForm.get('height')!.dirty || editForm.get('height')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('height')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('height')?.errors?.number"> This field should be a number. </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_workoutsPerWeek">Workouts Per Week</label>
+          <input
+            type="number"
+            class="form-control"
+            name="workoutsPerWeek"
+            id="field_workoutsPerWeek"
+            data-cy="workoutsPerWeek"
+            formControlName="workoutsPerWeek"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_minutesPerWorkout">Minutes Per Workout</label>
+          <input
+            type="number"
+            class="form-control"
+            name="minutesPerWorkout"
+            id="field_minutesPerWorkout"
+            data-cy="minutesPerWorkout"
+            formControlName="minutesPerWorkout"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_dateOfBirth">Date Of Birth</label>
+          <div class="input-group">
+            <input
+              id="field_dateOfBirth"
+              data-cy="dateOfBirth"
+              type="text"
+              class="form-control"
+              name="dateOfBirth"
+              ngbDatepicker
+              #dateOfBirthDp="ngbDatepicker"
+              formControlName="dateOfBirth"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_activityLevel">Activity Level</label>
+          <select
+            class="form-control"
+            name="activityLevel"
+            formControlName="activityLevel"
+            id="field_activityLevel"
+            data-cy="activityLevel"
+          >
+            <option [ngValue]="null"></option>
+            <option value="Sedentary">Sedentary</option>
+            <option value="LightlyActive">LightlyActive</option>
+            <option value="Active">Active</option>
+            <option value="VeryActive">VeryActive</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

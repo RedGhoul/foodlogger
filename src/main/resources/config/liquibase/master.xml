@@ -15,7 +15,18 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142732_added_entity_CurrentWeight.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142733_added_entity_GoalWeight.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142734_added_entity_Food.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142735_added_entity_FoodEntry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142736_added_entity_FoodDay.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142737_added_entity_AppUser.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210906142732_added_entity_constraints_CurrentWeight.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142733_added_entity_constraints_GoalWeight.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142735_added_entity_constraints_FoodEntry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142736_added_entity_constraints_FoodDay.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210906142737_added_entity_constraints_AppUser.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

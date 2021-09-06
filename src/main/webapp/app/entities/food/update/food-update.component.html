@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-food-heading" data-cy="FoodCreateUpdateHeading">Create or edit a Food</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.minlength">
+              This field is required to be at least 2 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_calories">Calories</label>
+          <input type="number" class="form-control" name="calories" id="field_calories" data-cy="calories" formControlName="calories" />
+          <div *ngIf="editForm.get('calories')!.invalid && (editForm.get('calories')!.dirty || editForm.get('calories')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('calories')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('calories')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_carbohydrates">Carbohydrates</label>
+          <input
+            type="number"
+            class="form-control"
+            name="carbohydrates"
+            id="field_carbohydrates"
+            data-cy="carbohydrates"
+            formControlName="carbohydrates"
+          />
+          <div
+            *ngIf="
+              editForm.get('carbohydrates')!.invalid && (editForm.get('carbohydrates')!.dirty || editForm.get('carbohydrates')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('carbohydrates')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('carbohydrates')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_proteins">Proteins</label>
+          <input type="number" class="form-control" name="proteins" id="field_proteins" data-cy="proteins" formControlName="proteins" />
+          <div *ngIf="editForm.get('proteins')!.invalid && (editForm.get('proteins')!.dirty || editForm.get('proteins')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('proteins')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('proteins')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_fat">Fat</label>
+          <input type="number" class="form-control" name="fat" id="field_fat" data-cy="fat" formControlName="fat" />
+          <div *ngIf="editForm.get('fat')!.invalid && (editForm.get('fat')!.dirty || editForm.get('fat')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fat')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('fat')?.errors?.number"> This field should be a number. </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_sodium">Sodium</label>
+          <input type="number" class="form-control" name="sodium" id="field_sodium" data-cy="sodium" formControlName="sodium" />
+          <div *ngIf="editForm.get('sodium')!.invalid && (editForm.get('sodium')!.dirty || editForm.get('sodium')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('sodium')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('sodium')?.errors?.number"> This field should be a number. </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

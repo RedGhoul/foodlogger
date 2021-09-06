@@ -1,0 +1,11 @@
+id;bio;created_date;height;workouts_per_week;minutes_per_workout;date_of_birth;activity_level
+1;../fake-data/blob/hipster.txt;2021-09-06;97720;18421;53177;2021-09-06;Active
+2;../fake-data/blob/hipster.txt;2021-09-05;98651;33883;77469;2021-09-06;Sedentary
+3;../fake-data/blob/hipster.txt;2021-09-05;74889;21262;26661;2021-09-05;Sedentary
+4;../fake-data/blob/hipster.txt;2021-09-06;40312;83492;61671;2021-09-06;VeryActive
+5;../fake-data/blob/hipster.txt;2021-09-05;80909;58102;59163;2021-09-05;Active
+6;../fake-data/blob/hipster.txt;2021-09-06;2968;24056;35605;2021-09-06;Active
+7;../fake-data/blob/hipster.txt;2021-09-05;56103;69587;58783;2021-09-06;Sedentary
+8;../fake-data/blob/hipster.txt;2021-09-06;40474;74670;26550;2021-09-06;VeryActive
+9;../fake-data/blob/hipster.txt;2021-09-05;39866;58207;34304;2021-09-06;Sedentary
+10;../fake-data/blob/hipster.txt;2021-09-06;92250;37249;8174;2021-09-06;Sedentary

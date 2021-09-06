@@ -1,0 +1,78 @@
+enum MealType {
+  Lunch,
+  Dinner,
+  Lunch,
+  Snack
+}
+
+enum ActivityLevel {
+  Sedentary,
+  LightlyActive,
+  Active,
+  VeryActive
+}
+
+entity CurrentWeight {
+	weight Float required
+    createdDate LocalDate
+}
+
+entity GoalWeight {
+	weight Float required
+    createdDate LocalDate
+}
+entity Food {
+	name String required minlength(2)
+    calories Float required
+    carbohydrates Float required
+    proteins Float required
+    fat Float required
+    sodium Float required
+}
+
+entity FoodEntry {
+    mealtype MealType
+    createdDate LocalDate
+}
+
+entity FoodDay {
+	createdDate LocalDate
+}
+
+entity AppUser {
+    bio TextBlob
+    createdDate LocalDate
+    height Float required
+    workoutsPerWeek Integer
+    minutesPerWorkout Integer
+    dateOfBirth LocalDate
+    activityLevel ActivityLevel
+}
+
+relationship OneToOne {
+	AppUser to User
+}
+
+relationship OneToMany {
+  	FoodDay{FoodEntry} to FoodEntry{FoodDay}
+    Food{FoodEntry} to FoodEntry{Food}
+}
+
+relationship ManyToOne {
+    FoodDay{user(login)} to User
+    CurrentWeight{user(login)} to User
+    GoalWeight{user(login)} to User
+}
+
+
+// Set pagination options
+paginate FoodEntry, Food with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+//dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

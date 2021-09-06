@@ -1,0 +1,55 @@
+{
+  "name": "AppUser",
+  "fields": [
+    {
+      "fieldName": "bio",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "workoutsPerWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "minutesPerWorkout",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "activityLevel",
+      "fieldType": "ActivityLevel",
+      "fieldValues": "Sedentary,LightlyActive,Active,VeryActive"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "appUser",
+      "relationshipName": "user",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "app_user",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210906142737"
+}
